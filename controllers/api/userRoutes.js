@@ -6,7 +6,7 @@ const withAuth = require('../../utils/auth');
 // create a new user account ('/api/user)
 router.post('/', async (req, res) => {
     try {
-        const dbUserData = await User.create(req.body);
+        const dbUserData = await users.create(req.body);
         req.session.save(() => {
             req.session.userId = dbUserData.id;
             req.session.username = dbUserData.username;

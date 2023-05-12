@@ -26,7 +26,11 @@ const sess = {
 };
 
 // Using session middleware
-app.use(session(sess));
+app.use(session({
+    secret: 'Super secret secret',
+    resave: false,
+    saveUninitialized: false
+  }));
 
 // Handlebars engine setup
 const hbs = exphbs.create({ helpers });
